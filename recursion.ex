@@ -32,4 +32,13 @@ defmodule Recursion do
   def _get_caesar_char(val, n) do
     if val + n > 122, do: (val + n) - 122 + 65, else: val + n
   end
+
+  def test_me(x), do: x*x
+  
+  def inefficient([head | tail]), do: head + inefficient(tail)
+  def inefficient([]), do: 0
+  
+  def efficient_tail_recursion(list), do: do_tail_recursion(list, 0)
+  def do_tail_recursion([head | tail], acc), do: do_tail_recursion(tail, acc + sum)
+  def do_tail_recursion([], acc), do: acc
 end
